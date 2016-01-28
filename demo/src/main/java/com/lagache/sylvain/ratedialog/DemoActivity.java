@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.lagache.sylvain.library.AppRate;
 import com.lagache.sylvain.library.fragments.RateDialogFragment;
 import com.lagache.sylvain.library.listeners.RateDialogListener;
 
@@ -26,11 +27,18 @@ public class DemoActivity extends AppCompatActivity implements RateDialogListene
                 showRateDialogFrament();
             }
         });
+
+        AppRate.with(this)
+                .setFirstShow(1)
+                .setShowInterval(1)
+                .setIntervalMultiplier(1.0F);
+
+        AppRate.showDialogIfNeeded(this);
     }
 
     private void showRateDialogFrament(){
-        rateDialogFragment = RateDialogFragment.newInstance("", "", "");
-        rateDialogFragment.show(getSupportFragmentManager(), RateDialogFragment.TAG);
+//        rateDialogFragment = RateDialogFragment.newInstance();
+//        rateDialogFragment.show(getSupportFragmentManager(), RateDialogFragment.TAG);
     }
 
     @Override

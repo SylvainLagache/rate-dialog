@@ -23,10 +23,6 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
 
     public static final String TAG = "RateDialogFragment";
 
-    private String playstorePackage;
-    private String suggestionEmailAddress;
-    private String emailObject;
-
     private String title;
     private String message;
     private String playStoreMessage;
@@ -51,22 +47,14 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
 
     }
 
-    public static RateDialogFragment newInstance(String playstorePackage,
-                                                 String suggestionEmailAddress,
-                                                 String emailObject){
+    public static RateDialogFragment newInstance(){
         RateDialogFragment rateDialogFragment = new RateDialogFragment();
         Bundle args = new Bundle();
-        args.putString(Constants.ARG_PLAYSTORE_PACKAGE, playstorePackage);
-        args.putString(Constants.ARG_SUGGESTION_EMAIL_ADDRESS, suggestionEmailAddress);
-        args.putString(Constants.ARG_EMAIL_OBJECT, emailObject);
         rateDialogFragment.setArguments(args);
         return rateDialogFragment;
     }
 
-    public static RateDialogFragment newInstance(String playstorePackage,
-                                                 String suggestionEmailAddress,
-                                                 String emailObject,
-                                                 String title,
+    public static RateDialogFragment newInstance(String title,
                                                  String message,
                                                  String playstoreMessage,
                                                  String suggestionMessage,
@@ -74,9 +62,6 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
                                                  String neverShowAgainMessage){
         RateDialogFragment rateDialogFragment = new RateDialogFragment();
         Bundle args = new Bundle();
-        args.putString(Constants.ARG_PLAYSTORE_PACKAGE, playstorePackage);
-        args.putString(Constants.ARG_SUGGESTION_EMAIL_ADDRESS, suggestionEmailAddress);
-        args.putString(Constants.ARG_EMAIL_OBJECT, emailObject);
         args.putString(Constants.ARG_TITLE, title);
         args.putString(Constants.ARG_MESSAGE, message);
         args.putString(Constants.ARG_PLAYSTORE_TEXT, playstoreMessage);
@@ -98,14 +83,10 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        rateDialogListener = (RateDialogListener) activity;
+//        rateDialogListener = (RateDialogListener) activity;
     }
 
     private void initWithArguments(Bundle bundle){
-        playstorePackage = bundle.getString(Constants.ARG_PLAYSTORE_PACKAGE);
-        suggestionEmailAddress = bundle.getString(Constants.ARG_SUGGESTION_EMAIL_ADDRESS);
-        emailObject = bundle.getString(Constants.ARG_EMAIL_OBJECT);
-
         title = bundle.getString(Constants.ARG_TITLE);
         message = bundle.getString(Constants.ARG_MESSAGE);
         playStoreMessage = bundle.getString(Constants.ARG_PLAYSTORE_TEXT);
@@ -167,9 +148,10 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     @Override
     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
         int ratingInt = (int) rating;
+        rateDescriptionTextView.setVisibility(View.VISIBLE);
         switch (ratingInt){
             case 0:
-                rateDescriptionTextView.setText("");
+                rateDescriptionTextView.setVisibility(View.GONE);
                 hideButtons();
                 break;
             case 1:
@@ -196,8 +178,8 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     }
 
     private void showSuggestionButton(){
-        suggestionButton.setVisibility(View.VISIBLE);
         playStoreButton.setVisibility(View.GONE);
+        suggestionButton.setVisibility(View.VISIBLE);
     }
 
     private void showPlayStoreButton(){
@@ -212,12 +194,12 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
 
     @Override
     public void onClick(View v) {
-        if (v == playStoreButton){
-            rateDialogListener.onPlayStorePressed();
-        }else if (v == suggestionButton){
-            rateDialogListener.onSuggestionPressed();
-        }else if (v == cancelButton){
-            rateDialogListener.onCancelPressed(neverShowAgainCheckBox.isChecked());
-        }
+//        if (v == playStoreButton){
+//            rateDialogListener.onPlayStorePressed();
+//        }else if (v == suggestionButton){
+//            rateDialogListener.onSuggestionPressed();
+//        }else if (v == cancelButton){
+//            rateDialogListener.onCancelPressed(neverShowAgainCheckBox.isChecked());
+//        }
     }
 }

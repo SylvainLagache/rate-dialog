@@ -3,16 +3,16 @@
 
     <item android:state_pressed="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/ic_star_green_48dp" />
+        android:drawable="@drawable/ic_star_green_36dp" />
 
     <item android:state_focused="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/ic_star_green_48dp" />
+        android:drawable="@drawable/ic_star_green_36dp" />
 
     <item android:state_selected="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/ic_star_green_48dp" />
+        android:drawable="@drawable/ic_star_green_36dp" />
 
-    <item android:drawable="@drawable/ic_star_grey_48dp" />
+    <item android:drawable="@drawable/ic_star_green_36dp" />
 
 </selector>
