@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="300dp"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/rate_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey_800"
+        android:text="@string/rate_dialog_message"
+        android:layout_marginBottom="10dp"/>
+
+    <RatingBar
+        android:id="@+id/rate_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/rate_description_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textColor="@color/grey_800"
+        android:text="@string/rate_dialog_1_star_description"
+        />
+
+    <Button
+        android:id="@+id/playstore_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rate_dialog_playstore_button"
+        android:textAllCaps="true"/>
+
+    <Button
+        android:id="@+id/suggestion_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rate_dialog_suggestion_button"
+        android:textAllCaps="true"/>
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rate_dialog_cancel_button"
+        android:textAllCaps="true"/>
+
+    <CheckBox
+        android:id="@+id/never_show_again_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/rate_dialog_never_show_again"/>
+
+</LinearLayout>
