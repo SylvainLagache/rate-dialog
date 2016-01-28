@@ -1,6 +1,6 @@
 package com.lagache.sylvain.library.fragments;
 
-import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -12,8 +12,8 @@ import android.widget.CheckBox;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.lagache.sylvain.library.AppRate;
 import com.lagache.sylvain.library.R;
-import com.lagache.sylvain.library.listeners.RateDialogListener;
 import com.lagache.sylvain.library.utils.Constants;
 
 /**
@@ -40,8 +40,6 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     private Button cancelButton;
 
     private CheckBox neverShowAgainCheckBox;
-
-    private RateDialogListener rateDialogListener;
 
     public RateDialogFragment(){
 
@@ -78,12 +76,6 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
         if (getArguments() != null){
             initWithArguments(getArguments());
         }
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-//        rateDialogListener = (RateDialogListener) activity;
     }
 
     private void initWithArguments(Bundle bundle){
@@ -194,12 +186,23 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
 
     @Override
     public void onClick(View v) {
-//        if (v == playStoreButton){
-//            rateDialogListener.onPlayStorePressed();
-//        }else if (v == suggestionButton){
-//            rateDialogListener.onSuggestionPressed();
-//        }else if (v == cancelButton){
-//            rateDialogListener.onCancelPressed(neverShowAgainCheckBox.isChecked());
-//        }
+        if (v == playStoreButton){
+            AppRate.goToPlayStore();
+            AppRate.saveNeverShowAgain(true);
+            dismiss();
+        }else if (v == suggestionButton){
+            AppRate.sendSuggestion();
+            AppRate.saveNeverShowAgain(true);
+            dismiss();
+        }else if (v == cancelButton){
+            AppRate.saveNeverShowAgain(neverShowAgainCheckBox.isChecked());
+            dismiss();
+        }
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        AppRate.saveNeverShowAgain(neverShowAgainCheckBox.isChecked());
+        super.onCancel(dialog);
     }
 }

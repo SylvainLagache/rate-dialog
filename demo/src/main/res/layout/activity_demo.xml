@@ -11,8 +11,8 @@
     tools:context="com.lagache.sylvain.ratedialog.DemoActivity">
 
     <Button
-        android:id="@+id/show_dialog_button"
-        android:text="Show dialog"
+        android:id="@+id/reset_dialog_button"
+        android:text="Reset dialog values"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

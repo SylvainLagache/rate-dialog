@@ -13,32 +13,34 @@ public class DemoActivity extends AppCompatActivity implements RateDialogListene
 
     RateDialogFragment rateDialogFragment;
 
-    Button showDialogButton;
+    Button resetDialogButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
-        showDialogButton = (Button) findViewById(R.id.show_dialog_button);
-        showDialogButton.setOnClickListener(new View.OnClickListener() {
+        resetDialogButton = (Button) findViewById(R.id.reset_dialog_button);
+        resetDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showRateDialogFrament();
+                resetRateDialogValues();
             }
         });
 
         AppRate.with(this)
                 .setFirstShow(1)
                 .setShowInterval(1)
-                .setIntervalMultiplier(1.0F);
+                .setIntervalMultiplier(1.0F)
+                .setAppPackage("com.nf28.aotc")
+                .setEmailAddress("one.thumb.control@gmail.com")
+                .setEmailObject("Suggestion");
 
         AppRate.showDialogIfNeeded(this);
     }
 
-    private void showRateDialogFrament(){
-//        rateDialogFragment = RateDialogFragment.newInstance();
-//        rateDialogFragment.show(getSupportFragmentManager(), RateDialogFragment.TAG);
+    private void resetRateDialogValues(){
+        AppRate.resetValues(this);
     }
 
     @Override

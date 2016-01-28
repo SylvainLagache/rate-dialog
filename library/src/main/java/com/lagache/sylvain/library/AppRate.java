@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.lagache.sylvain.library.fragments.RateDialogFragment;
+import com.lagache.sylvain.library.helpers.IntentHelper;
 import com.lagache.sylvain.library.helpers.PreferencesHelper;
 
 /**
@@ -19,11 +20,11 @@ public class AppRate {
 
     private final Context context;
 
-    private int firstShow = 3;
+    private String appPackage;
 
-    private int showInterval = 3;
+    private String emailAddress;
 
-    private float intervalMultiplier = 1;
+    private String emailObject;
 
     private AppRate(Context context) {
         this.context = context.getApplicationContext();
@@ -40,12 +41,7 @@ public class AppRate {
         return singleton;
     }
 
-    public int getFirstShow() {
-        return firstShow;
-    }
-
     public AppRate setFirstShow(int firstShow) {
-        this.firstShow = firstShow;
         PreferencesHelper.saveFirstShow(context, firstShow);
         if (PreferencesHelper.getNextTimeOpen(context) == -1){
             PreferencesHelper.saveNextTimeOpen(context, firstShow);
@@ -53,12 +49,7 @@ public class AppRate {
         return this;
     }
 
-    public int getShowInterval() {
-        return showInterval;
-    }
-
     public AppRate setShowInterval(int showInterval) {
-        this.showInterval = showInterval;
         int currentInterval = PreferencesHelper.getShowInterval(context);
         int calculatedInterval = PreferencesHelper.getCalculatedInterval(context);
         if ((currentInterval != showInterval) || (calculatedInterval == -1)){
@@ -68,13 +59,23 @@ public class AppRate {
         return this;
     }
 
-    public float getIntervalMultiplier() {
-        return intervalMultiplier;
+    public AppRate setIntervalMultiplier(float intervalMultiplier) {
+        PreferencesHelper.saveShowMultiplier(context, intervalMultiplier);
+        return this;
     }
 
-    public AppRate setIntervalMultiplier(float intervalMultiplier) {
-        this.intervalMultiplier = intervalMultiplier;
-        PreferencesHelper.saveShowMultiplier(context, intervalMultiplier);
+    public AppRate setAppPackage(String appPackage) {
+        this.appPackage = appPackage;
+        return this;
+    }
+
+    public AppRate setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
+    public AppRate setEmailObject(String emailObject) {
+        this.emailObject = emailObject;
         return this;
     }
 
@@ -151,6 +152,15 @@ public class AppRate {
         PreferencesHelper.saveNextTimeOpen(context, nextTimeOpen);
     }
 
+    public static void resetValues(Context context){
+        int interval = PreferencesHelper.getShowInterval(context);
+        int firstShow = PreferencesHelper.getFirstShow(context);
+        PreferencesHelper.saveCalculatedInterval(context, interval);
+        PreferencesHelper.saveNextTimeOpen(context, firstShow);
+        PreferencesHelper.saveIncrement(context, 1);
+        PreferencesHelper.saveNeverShowAgain(context, false);
+    }
+
     private static void logEverything(Context context){
         float multiplier = PreferencesHelper.getShowMultiplier(context);
         int currentState = PreferencesHelper.getIncrement(context);
@@ -167,5 +177,17 @@ public class AppRate {
         Log.d(TAG, "nextTimeOpen = " + nextTimeOpen);
         Log.d(TAG, "multiplier = " + multiplier);
         Log.d(TAG, "neverShowAgain = " + neverShowAgain);
+    }
+
+    public static void sendSuggestion(){
+        IntentHelper.openEmailIntent(singleton.context, singleton.emailAddress, singleton.emailObject);
+    }
+
+    public static void goToPlayStore(){
+        IntentHelper.openPlayStoreIntent(singleton.context, singleton.appPackage);
+    }
+
+    public static void saveNeverShowAgain(boolean neverShowAgain){
+        PreferencesHelper.saveNeverShowAgain(singleton.context, neverShowAgain);
     }
 }

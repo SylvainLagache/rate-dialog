@@ -8,7 +8,7 @@
     <string name="rate_dialog_3_star_description">It\'s OK</string>
     <string name="rate_dialog_4_star_description">Liked it</string>
     <string name="rate_dialog_5_star_description">Loved it</string>
-    <string name="rate_dialog_playstore_button">Rate it on PlayStore</string>
+    <string name="rate_dialog_playstore_button">Rate it on the PlayStore</string>
     <string name="rate_dialog_suggestion_button">Send us why</string>
     <string name="rate_dialog_cancel_button">Cancel</string>
     <string name="rate_dialog_never_show_again">Never show this again</string>
