@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="300dp"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:animateLayoutChanges="true">
 
     <TextView
         android:id="@+id/rate_message_textview"
@@ -15,9 +16,10 @@
         android:layout_marginBottom="10dp"/>
 
     <RatingBar
+        style= "@style/CustomRatingBar"
         android:id="@+id/rate_ratingbar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:numStars="5"
         android:stepSize="1"
         android:layout_gravity="center_horizontal"
@@ -30,7 +32,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:textColor="@color/grey_800"
-        android:text="@string/rate_dialog_1_star_description"
+        android:text=""
         />
 
     <Button
@@ -39,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/rate_dialog_playstore_button"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/suggestion_button"
@@ -47,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/rate_dialog_suggestion_button"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/cancel_button"
