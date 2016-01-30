@@ -1,4 +1,4 @@
-package com.lagache.sylvain.library.fragments;
+package com.lagache.sylvain.AppRateDialog.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import android.widget.CheckBox;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.lagache.sylvain.library.AppRate;
-import com.lagache.sylvain.library.R;
-import com.lagache.sylvain.library.utils.Constants;
+import com.lagache.sylvain.AppRateDialog.AppRate;
+import com.lagache.sylvain.AppRateDialog.R;
+import com.lagache.sylvain.AppRateDialog.utils.Constants;
 
 /**
  * Created by user on 28/01/2016.

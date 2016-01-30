@@ -1,15 +1,13 @@
 package com.lagache.sylvain.ratedialog;
 
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.lagache.sylvain.library.AppRate;
-import com.lagache.sylvain.library.fragments.RateDialogFragment;
-import com.lagache.sylvain.library.listeners.RateDialogListener;
+import com.lagache.sylvain.AppRateDialog.AppRate;
+import com.lagache.sylvain.AppRateDialog.listeners.RateDialogListener;
 
 public class DemoActivity extends AppCompatActivity implements RateDialogListener {
 

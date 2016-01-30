@@ -1,13 +1,12 @@
-package com.lagache.sylvain.library;
+package com.lagache.sylvain.AppRateDialog;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.lagache.sylvain.library.fragments.RateDialogFragment;
-import com.lagache.sylvain.library.helpers.IntentHelper;
-import com.lagache.sylvain.library.helpers.PreferencesHelper;
+import com.lagache.sylvain.AppRateDialog.fragments.RateDialogFragment;
+import com.lagache.sylvain.AppRateDialog.helpers.IntentHelper;
+import com.lagache.sylvain.AppRateDialog.helpers.PreferencesHelper;
 
 /**
  * Created by user on 28/01/2016.

@@ -1,4 +1,4 @@
-package com.lagache.sylvain.library;
+package com.lagache.sylvain.AppRateDialog;
 
 import org.junit.Test;
 

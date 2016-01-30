@@ -1,4 +1,4 @@
-package com.lagache.sylvain.library.utils;
+package com.lagache.sylvain.AppRateDialog.utils;
 
 /**
  * Created by user on 28/01/2016.

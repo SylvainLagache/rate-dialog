@@ -1,9 +1,9 @@
-package com.lagache.sylvain.library.helpers;
+package com.lagache.sylvain.AppRateDialog.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.lagache.sylvain.library.utils.Constants;
+import com.lagache.sylvain.AppRateDialog.utils.Constants;
 
 /**
  * Created by user on 28/01/2016.

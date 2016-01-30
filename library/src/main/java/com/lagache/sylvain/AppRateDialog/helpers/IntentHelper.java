@@ -1,4 +1,4 @@
-package com.lagache.sylvain.library.helpers;
+package com.lagache.sylvain.AppRateDialog.helpers;
 
 import android.content.Context;
 import android.content.Intent;
