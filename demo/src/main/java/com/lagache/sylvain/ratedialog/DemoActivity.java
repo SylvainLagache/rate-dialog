@@ -1,7 +1,9 @@
 package com.lagache.sylvain.ratedialog;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,9 +13,11 @@ import com.lagache.sylvain.library.listeners.RateDialogListener;
 
 public class DemoActivity extends AppCompatActivity implements RateDialogListener {
 
-    RateDialogFragment rateDialogFragment;
+    private static final String TAG = "DemoActivity";
 
-    Button resetDialogButton;
+    private Button resetDialogButton;
+
+    private static final String ARG_ALREADY_STARTED = "arg_already_started";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +40,20 @@ public class DemoActivity extends AppCompatActivity implements RateDialogListene
                 .setEmailAddress("one.thumb.control@gmail.com")
                 .setEmailObject("Suggestion");
 
-        AppRate.showDialogIfNeeded(this);
+        Log.d(TAG, "savedInstanceState : " + savedInstanceState);
+        if (savedInstanceState == null || !savedInstanceState.getBoolean(ARG_ALREADY_STARTED)) {
+            AppRate.showDialogIfNeeded(this);
+        }
     }
 
     private void resetRateDialogValues(){
         AppRate.resetValues(this);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(ARG_ALREADY_STARTED , true);
+        super.onSaveInstanceState(outState);
     }
 
     @Override

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Library</string>
+
+    <string name="rate_dialog_title">Rate this app</string>
+    <string name="rate_dialog_message">How much did you like this app ?</string>
+    <string name="rate_dialog_1_star_description">No me ha gustado nada</string>
+    <string name="rate_dialog_2_star_description">No me ha gustado</string>
+    <string name="rate_dialog_3_star_description">Está bien</string>
+    <string name="rate_dialog_4_star_description">Me ha gustado</string>
+    <string name="rate_dialog_5_star_description">Me ha encantado</string>
+    <string name="rate_dialog_playstore_button">Rate it on the PlayStore</string>
+    <string name="rate_dialog_suggestion_button">Send us why</string>
+    <string name="rate_dialog_cancel_button">Cancel</string>
+    <string name="rate_dialog_never_show_again">Never show this again</string>
+
+</resources>
