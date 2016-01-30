@@ -5,10 +5,10 @@
     <string name="rate_dialog_message">Comment avez-vous aimé cette application ?</string>
     <string name="rate_dialog_1_star_description">J\'ai détesté</string>
     <string name="rate_dialog_2_star_description">Je n\'ai pas aimé</string>
-    <string name="rate_dialog_3_star_description">It\'s OK</string>
-    <string name="rate_dialog_4_star_description">C\'était pas mal</string>
-    <string name="rate_dialog_5_star_description">Ça m\'a beaucoup plu</string>
-    <string name="rate_dialog_playstore_button">J\'ai adoré</string>
+    <string name="rate_dialog_3_star_description">C\'était pas mal</string>
+    <string name="rate_dialog_4_star_description">Ça m\'a beaucoup plu</string>
+    <string name="rate_dialog_5_star_description">J\'ai adoré</string>
+    <string name="rate_dialog_playstore_button">Noter sur le PlayStore</string>
     <string name="rate_dialog_suggestion_button">Envoyez-nous pourquoi</string>
     <string name="rate_dialog_cancel_button">Annuler</string>
     <string name="rate_dialog_never_show_again">Ne plus afficher</string>
