@@ -31,16 +31,23 @@ public class DemoActivity extends AppCompatActivity implements RateDialogListene
         });
 
         AppRate.with(this)
-                .setFirstShow(1)
-                .setShowInterval(1)
-                .setIntervalMultiplier(1.0F)
-                .setAppPackage("com.nf28.aotc")
-                .setEmailAddress("one.thumb.control@gmail.com")
-                .setEmailObject("Suggestion");
+                .setFirstShow(1) //First time showed
+                .setShowInterval(1) //Show interval
+                .setIntervalMultiplier(1.0F) //Show interval multiplier
+                .setAppPackage("com.your.package") //App package
+                .setEmailAddress("your.email@gmail.com") //Your suggestion email address
+                .setEmailObject("Suggestion"); //Your suggestion email object
 
-        Log.d(TAG, "savedInstanceState : " + savedInstanceState);
         if (savedInstanceState == null || !savedInstanceState.getBoolean(ARG_ALREADY_STARTED)) {
-            AppRate.showDialogIfNeeded(this);
+            //AppRate.showDialogIfNeeded(this);
+            //or
+            AppRate.showDialogIfNeeded(this,
+                    "Rate this app", //Dialog title
+                    "How much did you like this app ?", //Dialog message
+                    "Rate it on PLayStore", //PLaystore button text
+                    "Send us why", //Suggestion button text
+                    "Cancel", //Cancel button text
+                    "Never show again"); //Never show again checkbox text
         }
     }
 
