@@ -3,7 +3,7 @@
 
 With this dialog your users are asked to rate the app and depending their rate the dialog show them the possibility to sen you an email or to go on the playstore.
 
-![](http://im2.ezgif.com/tmp/ezgif-3075728070.gif)
+![](https://s32.postimg.org/5moyujwd1/XMi_d_T.gif)
 
 ##Setup
 Download the aar file here : [rate_dialog-1.0.aar](https://github.com/SylvainLagache/rate-dialog/blob/master/RateDialog/export/rate_dialog-1.0.aar)
