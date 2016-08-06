@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Library</string>
+    <string name="rate_dialog_app_name">Library</string>
 
     <string name="rate_dialog_title">Rate this app</string>
     <string name="rate_dialog_message">How much did you like this app ?</string>
