@@ -6,11 +6,11 @@ With this dialog your users are asked to rate the app and depending their rate t
 ![](https://s31.postimg.org/8d3vqcepn/ezgif_458605017.gif)
 
 ##Setup
-Download the aar file here : [rate_dialog-1.0.aar](https://github.com/SylvainLagache/rate-dialog/blob/master/RateDialog/export/rate_dialog-1.0.aar)
+Download the aar file here : [rate_dialog-1.0.aar](https://github.com/SylvainLagache/rate-dialog/blob/master/RateDialog/export/rate_dialog-1.1.0.aar)
 
 Put the aar file in your libs directory
 
-Add in your build.gradle : `compile(name:'rate_dialog-1.0', ext:'aar')`
+Add in your build.gradle : `compile(name:'rate_dialog-1.1.0', ext:'aar')`
 
 Add in your activity
 ```java
@@ -21,6 +21,7 @@ Add in your activity
                 .setAppPackage("com.your.package") //App package
                 .setEmailAddress("your.email@gmail.com") //Your suggestion email address
                 .setEmailObject("Suggestion"); //Your suggestion email object
+                .setFAQIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.lagache.sylvain.xhomebar"))); //Your FAQ intent
 
     if (savedInstanceState == null || !savedInstanceState.getBoolean(ARG_ALREADY_STARTED)) {
             AppRate.showDialogIfNeeded(this);//Default

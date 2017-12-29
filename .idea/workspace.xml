@@ -19,39 +19,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4765fd21-6ca4-4a57-91a9-72315b056c98" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/drawable/RaitingStartDrawables.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/drawable/StateDrawableBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/listeners/AppRateListener.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/demo.iml" afterPath="$PROJECT_DIR$/demo/demo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/src/main/java/com/lagache/sylvain/ratedialog/DemoActivity.java" afterPath="$PROJECT_DIR$/demo/src/main/java/com/lagache/sylvain/ratedialog/DemoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build.gradle" afterPath="$PROJECT_DIR$/library/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/library.iml" afterPath="$PROJECT_DIR$/library/library.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/AppRate.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/AppRate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/fragments/RateDialogFragment.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/fragments/RateDialogFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/helpers/IntentHelper.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/helpers/IntentHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/helpers/PreferencesHelper.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/helpers/PreferencesHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/listeners/RateDialogListener.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/listeners/RateDialogListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/utils/Constants.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values-de/strings.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values-de/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values-es/strings.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values-es/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values-fr/strings.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values-fr/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values-it/strings.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values-it/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/library/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rate-dialog.iml" afterPath="$PROJECT_DIR$/rate-dialog.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/library/src/main/res/drawable/rating_bar.xml" afterPath="$PROJECT_DIR$/library/src/main/res/drawable/rate_dialog_rating_bar.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/library/src/main/res/drawable/selector_ratingbar_empty.xml" afterPath="$PROJECT_DIR$/library/src/main/res/drawable/rate_dialog_selector_ratingbar_empty.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/library/src/main/res/drawable/selector_ratingbar_filled.xml" afterPath="$PROJECT_DIR$/library/src/main/res/drawable/rate_dialog_selector_ratingbar_filled.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/library/src/main/res/layout/dialog_fragment_rate_dialog.xml" afterPath="$PROJECT_DIR$/library/src/main/res/layout/rate_dialog_fragment_rate_dialog.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="rate-dialog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,11 +51,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RateDialogFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RateDialogFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/fragments/RateDialogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
               <caret line="202" column="43" lean-forward="false" selection-start-line="202" selection-start-column="43" selection-end-line="202" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="23" column="148" lean-forward="false" selection-start-line="23" selection-start-column="148" selection-end-line="23" selection-end-column="148" />
               <folding />
             </state>
           </provider>
@@ -163,8 +141,8 @@
       <file leaf-file-name="DemoActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/src/main/java/com/lagache/sylvain/ratedialog/DemoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="41" column="148" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="148" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#918#1075#0" expanded="true" />
@@ -182,16 +160,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
               <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/src/main/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -2524,6 +2492,7 @@
         <option value="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/drawable/RaitingStartDrawables.java" />
         <option value="$PROJECT_DIR$/library/src/main/res/layout/rate_dialog_fragment_rate_dialog.xml" />
         <option value="$PROJECT_DIR$/library/src/main/java/com/lagache/sylvain/AppRateDialog/fragments/RateDialogFragment.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -2534,7 +2503,7 @@
     <option name="height" value="1051" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2648,52 +2617,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="rate-dialog" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="rate-dialog" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rate-dialog" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ratedialog" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3189,6 +3129,9 @@
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -3205,14 +3148,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3572,18 +3507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/src/main/java/com/lagache/sylvain/ratedialog/DemoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#918#1075#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -3627,6 +3550,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="202" column="43" lean-forward="false" selection-start-line="202" selection-start-column="43" selection-end-line="202" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/src/main/java/com/lagache/sylvain/ratedialog/DemoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="41" column="148" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="148" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#918#1075#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="148" lean-forward="false" selection-start-line="23" selection-start-column="148" selection-end-line="23" selection-end-column="148" />
           <folding />
         </state>
       </provider>
