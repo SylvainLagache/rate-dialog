@@ -8,17 +8,18 @@
     android:animateLayoutChanges="true">
 
     <TextView
+        android:textAppearance="@android:style/TextAppearance.DialogWindowTitle"
         android:id="@+id/rate_message_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/grey_800"
         android:text="@string/rate_dialog_message"
         android:lines="2"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="13dp"/>
 
     <RatingBar
-        style= "@style/CustomRatingBar"
+        style= "@style/Rate_Dialog_CustomRatingBar"
         android:id="@+id/rate_ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,13 +32,14 @@
         android:id="@+id/rate_description_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:textColor="@color/grey_800"
+        android:textColor="@color/rate_dialog_grey_800"
         android:visibility="gone"
         />
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/playstore_button"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
@@ -47,11 +49,22 @@
         android:visibility="gone"/>
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/suggestion_button"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/rate_dialog_suggestion_button"
+        android:textAllCaps="true"
+        android:visibility="gone"/>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/faq_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rate_dialog_faq"
         android:textAllCaps="true"
         android:visibility="gone"/>
 
@@ -70,6 +83,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="13dp"
-        android:text="@string/rate_dialog_never_show_again"/>
+        android:text="@string/rate_dialog_never_show_again"
+        android:textSize="13sp"/>
 
 </LinearLayout>

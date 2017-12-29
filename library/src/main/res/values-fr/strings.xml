@@ -10,6 +10,7 @@
     <string name="rate_dialog_5_star_description">J\'ai adoré</string>
     <string name="rate_dialog_playstore_button">Noter sur le PlayStore</string>
     <string name="rate_dialog_suggestion_button">Envoyez-nous pourquoi</string>
+    <string name="rate_dialog_faq">FAQ</string>
     <string name="rate_dialog_cancel_button">Annuler</string>
     <string name="rate_dialog_never_show_again">Ne plus afficher</string>
 

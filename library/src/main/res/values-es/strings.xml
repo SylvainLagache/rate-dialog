@@ -10,6 +10,7 @@
     <string name="rate_dialog_5_star_description">Me ha encantado</string>
     <string name="rate_dialog_playstore_button">Rate it on the PlayStore</string>
     <string name="rate_dialog_suggestion_button">Send us why</string>
+    <string name="rate_dialog_faq">FAQ</string>
     <string name="rate_dialog_cancel_button">Cancel</string>
     <string name="rate_dialog_never_show_again">Never show this again</string>
 

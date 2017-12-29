@@ -1,7 +1,7 @@
 package com.lagache.sylvain.AppRateDialog.utils;
 
 /**
- * Created by user on 28/01/2016.
+ * Constants used by the library.
  */
 public class Constants {
 
@@ -15,6 +15,7 @@ public class Constants {
     public static final String ARG_SUGGESTION_TEXT = "arg_suggestion_text";
     public static final String ARG_CANCEL_TEXT = "arg_cancel_text";
     public static final String ARG_NEVER_SHOW_AGAIN_TEXT = "arg_never_show_again_text";
+    public static final String ARG_SHOW_FAQ = "ARG_SHOW_FAQ";
 
     //PREFERENCES
     public static final String PREF_FIRST_SHOW = "pref_first_show";
@@ -24,5 +25,4 @@ public class Constants {
     public static final String PREF_INCREMENT = "pref_increment";
     public static final String PREF_NEXT_TIME_OPEN = "pref_newt_time_open";
     public static final String PREF_NEVER_SHOW_AGAIN = "pref_never_show_gain";
-
 }

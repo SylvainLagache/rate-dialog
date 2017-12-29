@@ -31,5 +31,4 @@ public class IntentHelper {
             context.startActivity(storeIntent);
         }
     }
-
 }

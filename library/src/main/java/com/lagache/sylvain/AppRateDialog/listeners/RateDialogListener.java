@@ -1,12 +1,22 @@
 package com.lagache.sylvain.AppRateDialog.listeners;
 
 /**
- * Created by user on 28/01/2016.
+ * Listener used to get user interaction of the dialog.
  */
 public interface RateDialogListener {
 
+    /**
+     * Play store rate requested.
+     */
     void onPlayStorePressed();
-    void onSuggestionPressed();
-    void onCancelPressed(boolean neverShowAgain);
 
+    /**
+     * Suggestion mail requested.
+     */
+    void onSuggestionPressed();
+
+    /**
+     * Cancel requested.
+     */
+    void onCancelPressed(boolean neverShowAgain);
 }

@@ -1,6 +1,7 @@
 package com.lagache.sylvain.AppRateDialog;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -9,7 +10,7 @@ import com.lagache.sylvain.AppRateDialog.helpers.IntentHelper;
 import com.lagache.sylvain.AppRateDialog.helpers.PreferencesHelper;
 
 /**
- * Created by user on 28/01/2016.
+ * AppRate main class
  */
 public class AppRate {
 
@@ -25,9 +26,15 @@ public class AppRate {
 
     private String emailObject;
 
+    private Intent faqIntent;
+
     private AppRate(Context context) {
         this.context = context.getApplicationContext();
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////// BUILD ////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static AppRate with(Context context) {
         if (singleton == null) {
@@ -78,6 +85,15 @@ public class AppRate {
         return this;
     }
 
+    public AppRate setFAQIntent(Intent faqIntent){
+        this.faqIntent = faqIntent;
+        return this;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////// OTHER ////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static boolean shouldShowDialog(Context context){
         boolean neverShowAgain = PreferencesHelper.getNeverShowAgain(context);
         if (!neverShowAgain) {
@@ -126,14 +142,15 @@ public class AppRate {
                                    String cancelMessage,
                                    String neverShowAgainMessage){
         RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance(title, message,
-                playstoreMessage, suggestionMessage, cancelMessage, neverShowAgainMessage);
+                playstoreMessage, suggestionMessage, cancelMessage, neverShowAgainMessage,
+                singleton.faqIntent != null);
         if (activity.getSupportFragmentManager().findFragmentByTag(RateDialogFragment.TAG) == null) {
             rateDialogFragment.show(activity.getSupportFragmentManager(), RateDialogFragment.TAG);
         }
     }
 
     private static void showDialog(AppCompatActivity activity){
-        RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance();
+        RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance(singleton.faqIntent != null);
         if (activity.getSupportFragmentManager().findFragmentByTag(RateDialogFragment.TAG) == null) {
             rateDialogFragment.show(activity.getSupportFragmentManager(), RateDialogFragment.TAG);
         }
@@ -188,5 +205,9 @@ public class AppRate {
 
     public static void saveNeverShowAgain(boolean neverShowAgain){
         PreferencesHelper.saveNeverShowAgain(singleton.context, neverShowAgain);
+    }
+
+    public static void startFAQ(){
+        singleton.context.startActivity(singleton.faqIntent);
     }
 }

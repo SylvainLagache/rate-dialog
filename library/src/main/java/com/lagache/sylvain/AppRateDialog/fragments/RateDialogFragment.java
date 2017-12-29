@@ -1,6 +1,7 @@
 package com.lagache.sylvain.AppRateDialog.fragments;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.lagache.sylvain.AppRateDialog.AppRate;
 import com.lagache.sylvain.AppRateDialog.R;
+import com.lagache.sylvain.AppRateDialog.drawable.RaitingStartDrawables;
 import com.lagache.sylvain.AppRateDialog.utils.Constants;
 
 /**
@@ -23,6 +25,7 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
 
     public static final String TAG = "RateDialogFragment";
 
+    private boolean showFAQ;
     private String title;
     private String message;
     private String playStoreMessage;
@@ -38,11 +41,12 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     private Button playStoreButton;
     private Button suggestionButton;
     private Button cancelButton;
+    private Button faqButton;
 
     private CheckBox neverShowAgainCheckBox;
 
     public RateDialogFragment(){
-
+        //Nothing to do
     }
 
     public static RateDialogFragment newInstance(){
@@ -52,12 +56,21 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
         return rateDialogFragment;
     }
 
+    public static RateDialogFragment newInstance(boolean showFAQ){
+        RateDialogFragment rateDialogFragment = new RateDialogFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(Constants.ARG_SHOW_FAQ, showFAQ);
+        rateDialogFragment.setArguments(args);
+        return rateDialogFragment;
+    }
+
     public static RateDialogFragment newInstance(String title,
                                                  String message,
                                                  String playstoreMessage,
                                                  String suggestionMessage,
                                                  String cancelMessage,
-                                                 String neverShowAgainMessage){
+                                                 String neverShowAgainMessage,
+                                                 boolean showFAQ){
         RateDialogFragment rateDialogFragment = new RateDialogFragment();
         Bundle args = new Bundle();
         args.putString(Constants.ARG_TITLE, title);
@@ -66,6 +79,7 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
         args.putString(Constants.ARG_SUGGESTION_TEXT, suggestionMessage);
         args.putString(Constants.ARG_CANCEL_TEXT, cancelMessage);
         args.putString(Constants.ARG_NEVER_SHOW_AGAIN_TEXT, neverShowAgainMessage);
+        args.putBoolean(Constants.ARG_SHOW_FAQ, showFAQ);
         rateDialogFragment.setArguments(args);
         return rateDialogFragment;
     }
@@ -85,12 +99,13 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
         suggestionMessage = bundle.getString(Constants.ARG_SUGGESTION_TEXT);
         cancelMessage = bundle.getString(Constants.ARG_CANCEL_TEXT);
         neverShowAgainMessage = bundle.getString(Constants.ARG_NEVER_SHOW_AGAIN_TEXT);
+        showFAQ = bundle.getBoolean(Constants.ARG_SHOW_FAQ);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View contentView = inflater.inflate(R.layout.dialog_fragment_rate_dialog, container);
+        View contentView = inflater.inflate(R.layout.rate_dialog_fragment_rate_dialog, container);
         initView(contentView);
         setTexts();
         return contentView;
@@ -101,14 +116,20 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
         rateDescriptionTextView = (TextView) contentView.findViewById(R.id.rate_description_textview);
 
         ratingBar = (RatingBar) contentView.findViewById(R.id.rate_ratingbar);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ratingBar.setProgressDrawableTiled(RaitingStartDrawables.getRatingStar(getContext()));
+        }
         ratingBar.setOnRatingBarChangeListener(this);
 
         playStoreButton = (Button) contentView.findViewById(R.id.playstore_button);
         suggestionButton = (Button) contentView.findViewById(R.id.suggestion_button);
         cancelButton = (Button) contentView.findViewById(R.id.cancel_button);
+        faqButton = (Button) contentView.findViewById(R.id.faq_button);
+
         playStoreButton.setOnClickListener(this);
         suggestionButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
+        faqButton.setOnClickListener(this);
 
         neverShowAgainCheckBox = (CheckBox) contentView.findViewById(R.id.never_show_again_checkbox);
     }
@@ -172,16 +193,21 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
     private void showSuggestionButton(){
         playStoreButton.setVisibility(View.GONE);
         suggestionButton.setVisibility(View.VISIBLE);
+        if (showFAQ) {
+            faqButton.setVisibility(View.VISIBLE);
+        }
     }
 
     private void showPlayStoreButton(){
         suggestionButton.setVisibility(View.GONE);
+        faqButton.setVisibility(View.GONE);
         playStoreButton.setVisibility(View.VISIBLE);
     }
 
     private void hideButtons(){
         suggestionButton.setVisibility(View.GONE);
         playStoreButton.setVisibility(View.GONE);
+        faqButton.setVisibility(View.GONE);
     }
 
     @Override
@@ -196,6 +222,9 @@ public class RateDialogFragment extends DialogFragment implements RatingBar.OnRa
             dismiss();
         }else if (v == cancelButton){
             AppRate.saveNeverShowAgain(neverShowAgainCheckBox.isChecked());
+            dismiss();
+        }else if (v == faqButton){
+            AppRate.startFAQ();
             dismiss();
         }
     }

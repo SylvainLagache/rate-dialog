@@ -6,13 +6,14 @@ import android.content.SharedPreferences;
 import com.lagache.sylvain.AppRateDialog.utils.Constants;
 
 /**
- * Created by user on 28/01/2016.
+ * Helper used to make preferences saving easier.
  */
 public class PreferencesHelper {
 
     private static final String PACKAGE_NAME = "com.lagache.sylvain.library.ratedialog";
 
     private PreferencesHelper() {
+        //Nothing to do
     }
 
     public static SharedPreferences getPreferences(Context context) {
