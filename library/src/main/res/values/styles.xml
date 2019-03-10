@@ -7,4 +7,13 @@
         <item name="android:maxHeight">48dp</item>
     </style>
 
+    <style name="Rate_Dialog_RateButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">@dimen/rate_dialog_button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_marginLeft">@dimen/rate_dialog_default_padding</item>
+        <item name="android:layout_marginRight">@dimen/rate_dialog_default_padding</item>
+    </style>
+
 </resources>

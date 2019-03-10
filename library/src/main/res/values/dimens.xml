@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="rate_dialog_default_padding">16dp</dimen>
+    <dimen name="rate_dialog_button_width">220dp</dimen>
+
 </resources>

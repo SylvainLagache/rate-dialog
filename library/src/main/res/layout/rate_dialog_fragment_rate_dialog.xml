@@ -16,17 +16,16 @@
         android:lines="2"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="13dp"/>
+        android:layout_marginLeft="13dp" />
 
     <RatingBar
-        style= "@style/Rate_Dialog_CustomRatingBar"
+        style="@style/Rate_Dialog_CustomRatingBar"
         android:id="@+id/rate_ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1"
-        android:layout_gravity="center_horizontal"
-        />
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/rate_description_textview"
@@ -35,38 +34,16 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:textColor="@color/rate_dialog_grey_800"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
-    <Button
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:id="@+id/playstore_button"
-        android:layout_width="220dp"
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="@dimen/rate_dialog_button_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/rate_dialog_playstore_button"
-        android:textAllCaps="true"
-        android:visibility="gone"/>
-
-    <Button
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:id="@+id/suggestion_button"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/rate_dialog_suggestion_button"
-        android:textAllCaps="true"
-        android:visibility="gone"/>
-
-    <Button
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:id="@+id/faq_button"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/rate_dialog_faq"
-        android:textAllCaps="true"
-        android:visibility="gone"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:animateLayoutChanges="true" />
 
     <Button
         android:id="@+id/cancel_button"
@@ -74,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/rate_dialog_cancel_button"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true" />
 
     <CheckBox
         android:id="@+id/never_show_again_checkbox"
@@ -84,6 +61,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="13dp"
         android:text="@string/rate_dialog_never_show_again"
-        android:textSize="13sp"/>
+        android:textSize="13sp" />
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 package com.lagache.sylvain.AppRateDialog.helpers;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -9,26 +8,26 @@ import android.net.Uri;
  */
 public class IntentHelper {
 
-    public static void openEmailIntent(Context context, String emailAddress, String emailObject){
+    public static Intent getEmailIntent(String emailAddress, String emailObject) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
                 Uri.fromParts("mailto", emailAddress, null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailObject);
         Intent chooserIntent = Intent.createChooser(emailIntent, null);
         chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(chooserIntent);
+        return chooserIntent;
     }
 
-    public static void openPlayStoreIntent(Context context, String appPackage){
+    public static Intent getPlayStoreIntent(String appPackage) {
         try {
             Intent storeIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("market://details?id=" + appPackage));
             storeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(storeIntent);
+            return storeIntent;
         } catch (android.content.ActivityNotFoundException anfe) {
             Intent storeIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=" + appPackage));
             storeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(storeIntent);
+            return storeIntent;
         }
     }
 }

@@ -4,17 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Pair;
 
-import com.lagache.sylvain.AppRateDialog.fragments.RateDialogFragment;
 import com.lagache.sylvain.AppRateDialog.helpers.IntentHelper;
 import com.lagache.sylvain.AppRateDialog.helpers.PreferencesHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AppRate main class
  */
 public class AppRate {
 
-    public static final String TAG = "AppRate";
+    private static final String TAG = AppRate.class.getSimpleName();
 
     private static AppRate singleton;
 
@@ -22,11 +25,9 @@ public class AppRate {
 
     private String appPackage;
 
-    private String emailAddress;
+    private List<Pair<String, Intent>> goodRateIntents;
 
-    private String emailObject;
-
-    private Intent faqIntent;
+    private List<Pair<String, Intent>> badRateIntents;
 
     private AppRate(Context context) {
         this.context = context.getApplicationContext();
@@ -44,12 +45,15 @@ public class AppRate {
                 }
             }
         }
+
+        singleton.badRateIntents = new ArrayList<>();
+        singleton.goodRateIntents = new ArrayList<>();
         return singleton;
     }
 
     public AppRate setFirstShow(int firstShow) {
         PreferencesHelper.saveFirstShow(context, firstShow);
-        if (PreferencesHelper.getNextTimeOpen(context) == -1){
+        if (PreferencesHelper.getNextTimeOpen(context) == -1) {
             PreferencesHelper.saveNextTimeOpen(context, firstShow);
         }
         return this;
@@ -58,7 +62,7 @@ public class AppRate {
     public AppRate setShowInterval(int showInterval) {
         int currentInterval = PreferencesHelper.getShowInterval(context);
         int calculatedInterval = PreferencesHelper.getCalculatedInterval(context);
-        if ((currentInterval != showInterval) || (calculatedInterval == -1)){
+        if ((currentInterval != showInterval) || (calculatedInterval == -1)) {
             PreferencesHelper.saveShowInterval(context, showInterval);
             PreferencesHelper.saveCalculatedInterval(context, showInterval);
         }
@@ -72,21 +76,28 @@ public class AppRate {
 
     public AppRate setAppPackage(String appPackage) {
         this.appPackage = appPackage;
+        goodRateIntents.add(
+                new Pair<String, Intent>(context.getString(R.string.rate_dialog_playstore_button),
+                        IntentHelper.getPlayStoreIntent(appPackage))
+        );
         return this;
     }
 
-    public AppRate setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public AppRate addEmailButton(String emailAddress, String emailObject) {
+        badRateIntents.add(new Pair<String, Intent>(
+                context.getString(R.string.rate_dialog_suggestion_button),
+                IntentHelper.getEmailIntent(emailAddress, emailObject))
+        );
         return this;
     }
 
-    public AppRate setEmailObject(String emailObject) {
-        this.emailObject = emailObject;
+    public AppRate addGoodRateButton(String buttonText, Intent buttonIntent) {
+        goodRateIntents.add(new Pair<String, Intent>(buttonText, buttonIntent));
         return this;
     }
 
-    public AppRate setFAQIntent(Intent faqIntent){
-        this.faqIntent = faqIntent;
+    public AppRate addBadRateButton(String buttonText, Intent buttonIntent) {
+        badRateIntents.add(new Pair<String, Intent>(buttonText, buttonIntent));
         return this;
     }
 
@@ -94,7 +105,7 @@ public class AppRate {
     ///////////////////////////////////////// OTHER ////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static boolean shouldShowDialog(Context context){
+    public static boolean shouldShowDialog(Context context) {
         boolean neverShowAgain = PreferencesHelper.getNeverShowAgain(context);
         if (!neverShowAgain) {
             int currentState = PreferencesHelper.getIncrement(context);
@@ -104,30 +115,27 @@ public class AppRate {
         return false;
     }
 
-    private static void incrementCurrentState(Context context){
+    private static void incrementCurrentState(Context context) {
         int currentState = PreferencesHelper.getIncrement(context);
-        PreferencesHelper.saveIncrement(context, currentState+1);
+        PreferencesHelper.saveIncrement(context, currentState + 1);
     }
 
     public static void showDialogIfNeeded(AppCompatActivity activity,
                                           String title,
                                           String message,
-                                          String playstoreMessage,
-                                          String suggestionMessage,
                                           String cancelMessage,
-                                          String neverShowAgainMessage){
+                                          String neverShowAgainMessage) {
 
-        if (shouldShowDialog(activity)){
-            showDialog(activity, title, message, playstoreMessage, suggestionMessage,
-                    cancelMessage, neverShowAgainMessage);
+        if (shouldShowDialog(activity)) {
+            showDialog(activity, title, message, cancelMessage, neverShowAgainMessage);
             calculateNextShow(activity);
         }
         incrementCurrentState(activity);
     }
 
-    public static void showDialogIfNeeded(AppCompatActivity activity){
+    public static void showDialogIfNeeded(AppCompatActivity activity) {
         logEverything(activity);
-        if (shouldShowDialog(activity)){
+        if (shouldShowDialog(activity)) {
             showDialog(activity);
             calculateNextShow(activity);
         }
@@ -137,26 +145,23 @@ public class AppRate {
     private static void showDialog(AppCompatActivity activity,
                                    String title,
                                    String message,
-                                   String playstoreMessage,
-                                   String suggestionMessage,
                                    String cancelMessage,
-                                   String neverShowAgainMessage){
+                                   String neverShowAgainMessage) {
         RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance(title, message,
-                playstoreMessage, suggestionMessage, cancelMessage, neverShowAgainMessage,
-                singleton.faqIntent != null);
+                cancelMessage, neverShowAgainMessage);
         if (activity.getSupportFragmentManager().findFragmentByTag(RateDialogFragment.TAG) == null) {
             rateDialogFragment.show(activity.getSupportFragmentManager(), RateDialogFragment.TAG);
         }
     }
 
-    private static void showDialog(AppCompatActivity activity){
-        RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance(singleton.faqIntent != null);
+    private static void showDialog(AppCompatActivity activity) {
+        RateDialogFragment rateDialogFragment = RateDialogFragment.newInstance();
         if (activity.getSupportFragmentManager().findFragmentByTag(RateDialogFragment.TAG) == null) {
             rateDialogFragment.show(activity.getSupportFragmentManager(), RateDialogFragment.TAG);
         }
     }
 
-    private static void calculateNextShow(Context context){
+    private static void calculateNextShow(Context context) {
         float multiplier = PreferencesHelper.getShowMultiplier(context);
         int currentState = PreferencesHelper.getIncrement(context);
         int interval = PreferencesHelper.getCalculatedInterval(context);
@@ -168,7 +173,7 @@ public class AppRate {
         PreferencesHelper.saveNextTimeOpen(context, nextTimeOpen);
     }
 
-    public static void resetValues(Context context){
+    public static void resetValues(Context context) {
         int interval = PreferencesHelper.getShowInterval(context);
         int firstShow = PreferencesHelper.getFirstShow(context);
         PreferencesHelper.saveCalculatedInterval(context, interval);
@@ -177,7 +182,7 @@ public class AppRate {
         PreferencesHelper.saveNeverShowAgain(context, false);
     }
 
-    private static void logEverything(Context context){
+    private static void logEverything(Context context) {
         float multiplier = PreferencesHelper.getShowMultiplier(context);
         int currentState = PreferencesHelper.getIncrement(context);
         int interval = PreferencesHelper.getShowInterval(context);
@@ -195,19 +200,15 @@ public class AppRate {
         Log.d(TAG, "neverShowAgain = " + neverShowAgain);
     }
 
-    public static void sendSuggestion(){
-        IntentHelper.openEmailIntent(singleton.context, singleton.emailAddress, singleton.emailObject);
-    }
-
-    public static void goToPlayStore(){
-        IntentHelper.openPlayStoreIntent(singleton.context, singleton.appPackage);
-    }
-
-    public static void saveNeverShowAgain(boolean neverShowAgain){
+    static void saveNeverShowAgain(boolean neverShowAgain) {
         PreferencesHelper.saveNeverShowAgain(singleton.context, neverShowAgain);
     }
 
-    public static void startFAQ(){
-        singleton.context.startActivity(singleton.faqIntent);
+    static List<Pair<String, Intent>> getGoodRateIntents() {
+        return singleton.goodRateIntents;
+    }
+
+    static List<Pair<String, Intent>> getBadRateIntents() {
+        return singleton.badRateIntents;
     }
 }
