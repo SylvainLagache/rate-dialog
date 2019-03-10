@@ -1,5 +1,6 @@
-###Want a new way to ask for rating?
-###Rate Dialog is here for you.
+### Want a new way to ask for rating?
+
+### Rate Dialog is here for you.
 
 ![](screenshot_1.png)
 ![](screenshot_1.png)
@@ -8,7 +9,7 @@ With this dialog your users are asked to rate the app and depending their rate t
 
 ![](https://s31.postimg.org/8d3vqcepn/ezgif_458605017.gif)
 
-##Setup
+## Setup
 Download the aar file here : [rate_dialog-1.0.aar](https://github.com/SylvainLagache/rate-dialog/blob/master/RateDialog/export/rate_dialog-1.1.0.aar)
 
 Put the aar file in your libs directory
